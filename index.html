@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <title>👰Jieun & Donggun🤵</title>
+</head>
+<style>
+    .box{
+    
+    width: 500px;
+    height: 700px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 40px;
+    }
+    .june{
+        width: 250px;
+        height: 300px;
+        padding:20px
+    }
+    h1, h2{
+        font-family: 'Dancing Script', cursive;
+    }
+    .time{
+        font-size: 25px;
+         font-family: 'Dancing Script', cursive;
+    }
+    h1{
+        font-size: 50px;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="countDown"> 
+            <h1>👰🏻Jieun & Donggun🤵🏻</h1>
+            <h2>💕Wedding Counting Down...💒</h2>
+        <div class="time">
+         <span class="day"></span>
+         <span class="hour"></span>
+         <span class="minute"></span>
+         <span class="second"></span>
+         </div>
+         <img class="june" src="june kim.png">
+        </div>
+        <h2>Our wedding is on Dec 07, 2023, 5:45PM</h2>
+        <h2>Looking forward to seeing you soon...</h2>
+    </div>
+
+<script>
+    function getCountDown(){
+    const weddingDay = +new Date('2023-12-7 5:45:00')
+    const currentDay = +new Date()
+    const countDown = (weddingDay - currentDay)/1000
+    //console.log(weddingDay)
+    //console.log(currentDay)
+    //console.log(countDown)
+    
+
+    let d = parseInt(countDown/60/60/24)
+    //console.log(d) 90days
+    let h = parseInt(countDown/60/60%24)
+    h = h < 10 ? '0' + h : h 
+    let m = parseInt(countDown/60%60)
+    m = m < 10 ? '0' + m : m
+    let s = parseInt(countDown%60)
+    s = s < 10 ? '0' + s : s 
+    //console.log(d,h,m,s)
+    const day = document.querySelector('.day')
+    day.innerHTML = `${d} days` 
+    const hour = document.querySelector('.hour')
+    hour.innerHTML = `${h} hours`
+    const minute = document.querySelector('.minute')
+    minute.innerHTML = `${m} minutes`
+    const second = document.querySelector('.second')
+    second.innerHTML = `${s} seconds`
+    }
+    getCountDown()
+    setInterval(getCountDown, 1000)
+</script>
+</body>
+</html>
